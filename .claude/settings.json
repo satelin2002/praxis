@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(ls -la /Users/sarveshtelang/projects/personax 2>&1 | head -30)",
+      "Read(//Users/sarveshtelang/projects/personax/**)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --eslint --src-dir --import-alias \"@/*\" --use-npm --yes --no-turbopack)"
+    ]
+  }
+}
