@@ -13,6 +13,7 @@ import { useFadeIn } from "./utils";
 
 interface Include {
   text: string;
+  subtext?: string;
   emphasized?: boolean;
 }
 
@@ -38,7 +39,11 @@ const TIERS: ReadonlyArray<Tier> = [
     priceSuffix: "/month",
     cta: "Subscribe",
     includes: [
-      { text: "One new automation built per month", emphasized: true },
+      {
+        text: "1 automation slot per month",
+        subtext: "save up for complex builds",
+        emphasized: true,
+      },
       { text: "Everything we build, monitored and maintained" },
       { text: "Async support (Notion + email)" },
       { text: "Standard integrations" },
@@ -55,7 +60,11 @@ const TIERS: ReadonlyArray<Tier> = [
     cta: "Subscribe",
     highlight: true,
     includes: [
-      { text: "Two new automations built per month", emphasized: true },
+      {
+        text: "2 automation slots per month",
+        subtext: "flexible across standard and complex",
+        emphasized: true,
+      },
       { text: "Everything we build, monitored and maintained" },
       { text: "Priority support + monthly sync call" },
       { text: "Custom integrations" },
@@ -72,7 +81,11 @@ const TIERS: ReadonlyArray<Tier> = [
     priceSuffix: "/month",
     cta: "Subscribe",
     includes: [
-      { text: "Three new automations built per month", emphasized: true },
+      {
+        text: "3 automation slots per month",
+        subtext: "pool for custom systems",
+        emphasized: true,
+      },
       { text: "Everything we build, monitored and maintained" },
       { text: "Same-day priority support" },
       { text: "Founder-led delivery" },
@@ -119,6 +132,7 @@ export function ServicesSection() {
           infrastructure (you own everything) · 7-day money-back guarantee.
         </p>
 
+        <SlotClassesExplainer />
         <HowItWorksExplainer />
       </div>
     </section>
@@ -210,6 +224,12 @@ function TierCard({ tier }: { tier: Tier }) {
               )}
             >
               {item.text}
+              {item.subtext ? (
+                <span className="font-normal text-muted-foreground">
+                  {" "}
+                  — {item.subtext}
+                </span>
+              ) : null}
             </span>
           </li>
         ))}
@@ -230,6 +250,83 @@ function TierCard({ tier }: { tier: Tier }) {
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
       </Button>
+    </div>
+  );
+}
+
+interface SlotClass {
+  name: string;
+  slots: string;
+  body: string;
+  examples: string;
+}
+
+const SLOT_CLASSES: ReadonlyArray<SlotClass> = [
+  {
+    name: "Standard",
+    slots: "1 slot",
+    body: "Focused workflow touching 1–3 systems. Most builds are this.",
+    examples:
+      "email triage, lead qualifier, appointment booker, review flow, basic support agent.",
+  },
+  {
+    name: "Complex",
+    slots: "2 slots",
+    body: "Multi-step workflows with multiple agents, custom integrations, or non-standard data handling.",
+    examples:
+      "multi-channel support with escalation, lead enrichment with research, custom CRM workflows.",
+  },
+  {
+    name: "Major",
+    slots: "3 slots",
+    body: "Custom multi-agent systems, regulated workflows, or anything requiring 4+ weeks of engineering.",
+    examples:
+      "multi-agent review with audit trails, full ops platforms, compliance-bound systems.",
+  },
+];
+
+function SlotClassesExplainer() {
+  return (
+    <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-8">
+      <h3 className="font-mono text-xs uppercase tracking-wider text-primary">
+        What counts as one automation slot?
+      </h3>
+      <p className="mt-3 text-base leading-relaxed text-foreground/85">
+        We classify every build into one of three types — standard, complex,
+        or major — and tell you upfront, in writing, before any work starts.
+      </p>
+
+      <ul className="mt-5 flex flex-col divide-y divide-border/60">
+        {SLOT_CLASSES.map((cls) => (
+          <li
+            key={cls.name}
+            className="flex flex-col gap-1.5 py-4 first:pt-0 last:pb-0"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="text-sm font-semibold text-foreground">
+                {cls.name}
+              </span>
+              <span className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-primary">
+                {cls.slots}
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed text-foreground/80">
+              {cls.body}
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              <span className="font-medium text-muted-foreground/90">
+                Examples:
+              </span>{" "}
+              {cls.examples}
+            </p>
+          </li>
+        ))}
+      </ul>
+
+      <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+        Slots roll forward — save them for bigger builds, or stack across
+        months for major work.
+      </p>
     </div>
   );
 }

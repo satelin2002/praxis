@@ -18,7 +18,11 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What counts as one new automation?",
-    a: 'A complete end-to-end workflow we build for you. For example: "answer every inbound call, qualify the lead, check my calendar, book the appointment, text me a summary." That\'s one automation, regardless of how many tools it touches. We\'re generous about scope — if you\'re unsure whether something is one or two, we\'ll tell you, and we err in your favor.',
+    a: 'Every build is classified as standard (1 slot), complex (2 slots), or major (3 slots) — see "What counts as one automation slot?" on the pricing section. We classify in writing before any work starts. We\'re generous about scope at the boundary — if it\'s borderline, we err in your favor.',
+  },
+  {
+    q: "What if my project is bigger than three slots?",
+    a: "For projects beyond the standard subscription scope — full automation programs, multi-agent platforms, regulated systems — we offer custom engagements starting at $25,000. Email hello@buildroom.ai with what you're trying to build and we'll scope it.",
   },
   {
     q: "Where do my automations run?",
