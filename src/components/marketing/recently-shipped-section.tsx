@@ -15,96 +15,63 @@ import { cn } from "@/lib/utils";
 
 import { useFadeIn } from "./utils";
 
-interface ShippedItem {
+interface ExampleItem {
   icon: React.ComponentType<{ className?: string }>;
   type: string;
-  customer: string;
-  before: string;
-  after: React.ReactNode;
-  speed: string;
+  audience: string;
+  body: string;
+  timeline: string;
 }
 
-function H({ children }: { children: React.ReactNode }) {
-  return <span className="font-semibold text-primary">{children}</span>;
-}
-
-const SHIPPED: ReadonlyArray<ShippedItem> = [
+/* Reframed from "Recently shipped" case studies (which named specific
+   client headcounts and dollar outcomes) to illustrative example
+   workflows. Same six categories, same icons, same narrative shape —
+   but no fabricated subscriber outcomes, no $-amount claims, no
+   shipped-in-X-days counts attributed to specific clients.
+   The id="recently-shipped" stays so deep links and the footer
+   anchor don't break. */
+const EXAMPLES: ReadonlyArray<ExampleItem> = [
   {
     icon: Phone,
     type: "AI receptionist",
-    customer: "HVAC company · 12 employees",
-    before: "Was missing 30% of after-hours calls.",
-    after: (
-      <>
-        Now captures <H>96%</H> — roughly <H>$18K/month</H> in recovered jobs.
-      </>
-    ),
-    speed: "8 days",
+    audience: "Home & field services",
+    body: "Answers every call, qualifies urgency, books from your calendar, texts you a summary.",
+    timeline: "1–2 weeks",
   },
   {
     icon: Inbox,
     type: "Lead qualifier",
-    customer: "Real estate brokerage · 25 agents",
-    before: "Hot leads sat for hours.",
-    after: (
-      <>
-        Now every inbound lead contacted in <H>under 5 minutes</H>, qualified,
-        and routed to the right agent.
-      </>
-    ),
-    speed: "9 days",
+    audience: "Real estate, insurance, high-touch sales",
+    body: "Lead in → enriched, scored, contacted in minutes, routed to the right rep.",
+    timeline: "1–2 weeks",
   },
   {
     icon: Mail,
     type: "Support email triage",
-    customer: "Shopify DTC brand · 8-person team",
-    before: "Inbox always 200+ deep.",
-    after: (
-      <>
-        Now <H>60% of tier-1 emails</H> auto-resolved with citations to help
-        docs.
-      </>
-    ),
-    speed: "11 days",
+    audience: "E-commerce and SaaS support",
+    body: "Reads each email, drafts a reply with help-doc citations, escalates the rest with full context.",
+    timeline: "1–2 weeks",
   },
   {
     icon: CalendarCheck,
     type: "Appointment booker",
-    customer: "Med spa · 3 locations",
-    before: "Front desk overwhelmed at peak hours.",
-    after: (
-      <>
-        Now handles <H>200+ bookings/month</H> across SMS and voice,{" "}
-        <H>zero missed</H>.
-      </>
-    ),
-    speed: "10 days",
+    audience: "Multi-location service businesses",
+    body: "Books over SMS, voice, or chat. Checks your calendar, sends confirmations, handles reschedules.",
+    timeline: "1–2 weeks",
   },
   {
     icon: Star,
     type: "Review request flow",
-    customer: "Auto repair shop · 6 bays",
-    before: "Owner manually texted reviews.",
-    after: (
-      <>
-        Now <H>4× more Google reviews</H>, fully automated post-service —
-        driving an estimated <H>15% lift</H> in inbound from local search.
-      </>
-    ),
-    speed: "6 days",
+    audience: "Local service businesses",
+    body: "Asks happy customers for reviews after every job. Negative feedback routes to you privately.",
+    timeline: "1 week",
   },
   {
     icon: FileSignature,
     type: "Estimate follow-up",
-    customer: "Roofing contractor · 15 employees",
-    before: "Estimates went cold after 48 hours.",
-    after: (
-      <>
-        Now <H>22% more closed deals</H> from automated 24h / 3-day / 7-day
-        follow-up — roughly <H>$30K extra revenue/month</H>.
-      </>
-    ),
-    speed: "9 days",
+    audience: "Contractors, agencies, B2B sales",
+    body: "Automated 24h / 3-day / 7-day follow-up — personalized to each prospect, not a blast.",
+    timeline: "1–2 weeks",
   },
 ];
 
@@ -119,9 +86,9 @@ export function RecentlyShippedSection() {
     >
       <div className="mx-auto w-full max-w-300">
         <SectionHeading
-          eyebrow="Proof"
-          title="Recently shipped."
-          description="6 of the automations we've shipped to subscribers recently. Anonymized at client request."
+          eyebrow="Example workflows"
+          title="What an automation looks like."
+          description="Six representative workflows we build for small businesses. Outcomes are illustrative — actual results depend on call volume, lead quality, and how the workflow is configured for your business."
           visible={visible}
         />
 
@@ -134,32 +101,31 @@ export function RecentlyShippedSection() {
               : "translate-y-6 opacity-0",
           )}
         >
-          {SHIPPED.map((item) => {
+          {EXAMPLES.map((item) => {
             const Icon = item.icon;
             return (
               <article
-                key={`${item.type}-${item.customer}`}
+                key={item.type}
                 className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-border border-l-[3px] border-l-primary bg-background p-6 shadow-sm transition-colors hover:border-primary/30 hover:border-l-primary"
               >
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex size-10 items-center justify-center rounded-md bg-primary/10 text-primary">
-                    <Icon className="size-4.5" />
+                  <div className="inline-flex size-11 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <Icon className="size-5" />
                   </div>
                   <div className="flex flex-col leading-tight">
                     <span className="text-base font-semibold tracking-tight text-foreground">
                       {item.type}
                     </span>
                     <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground/80">
-                      {item.customer}
+                      {item.audience}
                     </span>
                   </div>
                 </div>
-                <p className="text-base leading-relaxed">
-                  <span className="text-muted-foreground">{item.before}</span>{" "}
-                  <span className="text-foreground">{item.after}</span>{" "}
-                  <span className="text-muted-foreground">Live in</span>{" "}
-                  <H>{item.speed}</H>
-                  <span className="text-muted-foreground">.</span>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  {item.body}
+                </p>
+                <p className="mt-auto pt-2 font-mono text-xs uppercase tracking-wider text-muted-foreground/70">
+                  Build · {item.timeline}
                 </p>
               </article>
             );
@@ -175,7 +141,7 @@ export function RecentlyShippedSection() {
               : "translate-y-4 opacity-0",
           )}
         >
-          More examples? Mention an industry on your discovery call.
+          These are the common ones. We build plenty more — bring yours.
         </p>
       </div>
     </section>

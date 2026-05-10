@@ -14,7 +14,7 @@ const COLUMNS: ReadonlyArray<{
       { label: "What we build", href: "/#what-we-build" },
       { label: "Who we work with", href: "/#who-we-work-with" },
       { label: "Why us", href: "/#why-us" },
-      { label: "Recently shipped", href: "/#recently-shipped" },
+      { label: "Example workflows", href: "/#recently-shipped" },
       { label: "Pricing", href: "/#pricing" },
     ],
   },
@@ -85,6 +85,15 @@ export function MarketingFooter() {
             Stop doing the work AI can do for you.
           </p>
         </div>
+
+        {/* Independence disclaimer — keeps anyone reading the footer honest
+            about what Buildroom is and isn't. Same line we'll surface at
+            the top of /privacy and /terms. */}
+        <p className="border-t border-border/40 pt-6 text-xs leading-relaxed text-muted-foreground/70">
+          Buildroom is an independent business and is not affiliated with,
+          sponsored by, endorsed by, or associated with Google, Alphabet, or
+          any current or former employer of its founders.
+        </p>
       </div>
     </footer>
   );

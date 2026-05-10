@@ -36,6 +36,15 @@ export default function PrivacyPage() {
             </p>
           </header>
 
+          <p className="rounded-md border border-border bg-secondary px-4 py-3 text-sm leading-relaxed text-muted-foreground">
+            <strong className="font-medium text-foreground">
+              Independence:
+            </strong>{" "}
+            Buildroom is an independent business and is not affiliated with,
+            sponsored by, endorsed by, or associated with Google, Alphabet,
+            or any current or former employer of its founders.
+          </p>
+
           <Section title="The short version">
             <p>
               We collect the minimum information needed to reply to you and

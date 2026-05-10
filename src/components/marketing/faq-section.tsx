@@ -14,7 +14,7 @@ import { useFadeIn } from "./utils";
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
     q: "How does the queue work?",
-    a: "Drop requests into your board in priority order. We work on one at a time (Starter), two (Growth), or three (Scale). When one ships, we start the next.",
+    a: "Drop requests into your board in priority order. We work on one at a time on Pilot or Starter, two at a time on Growth. When one ships, we start the next.",
   },
   {
     q: "What counts as one new automation?",
@@ -70,7 +70,23 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "Will it sound like a robot?",
-    a: "No. We tune voice and tone to match your business. For phone-handling automations, most callers don't realize it's AI.",
+    a: "No. We tune voice and tone to match your business. For phone-handling automations, the assistant introduces itself as an AI assistant when the caller asks or when applicable disclosure laws require it — and otherwise just gets on with helping the caller.",
+  },
+  {
+    q: "Is Buildroom affiliated with Google or Alphabet?",
+    a: "No. Buildroom is an independent business and is not affiliated with, sponsored by, endorsed by, or associated with Google, Alphabet, or any current or former employer of its founders.",
+  },
+  {
+    q: "Do you use customer data to train models?",
+    a: "No, not unless separately agreed in writing. We use the model providers you're paying for (OpenAI, Anthropic, etc.) under their standard terms — not a Buildroom-trained model. Your business data isn't used to train anything.",
+  },
+  {
+    q: "Can I approve messages before they go out?",
+    a: "Yes. For sensitive workflows — refunds, escalations, regulated communications — we configure a human approval step. Drafts queue for your review, and nothing sends until you (or someone you designate) signs off.",
+  },
+  {
+    q: "Do you handle regulated workflows (legal, medical, financial)?",
+    a: "We assist with the surrounding workflow — intake, scheduling, summaries, follow-up — but we don't provide legal, medical, financial, or regulated advice. Final professional judgment stays with the licensed professional. Compliance with HIPAA, state bar rules, FINRA, and similar frameworks is your team's responsibility, and we'll configure approval steps and audit trails to support it.",
   },
 ];
 

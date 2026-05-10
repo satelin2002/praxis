@@ -16,7 +16,7 @@ const PILLARS = [
   {
     icon: Gauge,
     title: "Production-grade by default.",
-    body: "Built by engineers from Google. Real monitoring, real error handling, real reliability — not a demo that breaks the first week.",
+    body: "Built by senior engineers with deep production AI experience. Real monitoring, real error handling, real reliability — not a demo that breaks the first week.",
   },
   {
     icon: KeyRound,

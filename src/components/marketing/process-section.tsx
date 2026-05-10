@@ -24,8 +24,8 @@ const STEPS: ReadonlyArray<Step> = [
   },
   {
     weeks: "Day 1",
-    title: "Tell us what to build.",
-    body: "Drop your request into your private board in plain English. No specs, no diagrams, no calls required. We'll help you set up the accounts and API keys we'll need (typically $50–$300/mo in usage costs, paid to vendors directly).",
+    title: "Kickoff call.",
+    body: "Short call to map your current workflow, agree on what we're building first, and align on what success looks like. Async from there — your private board, no weekly status meetings. We'll also help you set up the accounts and API keys we'll need (typically $50–$300/mo in vendor costs, paid directly).",
     icon: MessageSquare,
   },
   {

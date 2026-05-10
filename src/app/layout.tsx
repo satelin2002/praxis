@@ -24,7 +24,7 @@ const SITE_URL =
 const DEFAULT_TITLE =
   "buildroom.ai — AI automation for small businesses";
 const DEFAULT_DESCRIPTION =
-  "Buildroom builds and runs AI automations for small businesses — answering calls, handling leads, replying to customers, booking appointments, processing paperwork. One flat monthly fee. Cancel anytime.";
+  "Buildroom recovers the revenue small businesses lose to missed leads, slow follow-up, and forgotten review requests. We build and run the AI workflows that reply to every lead, book more jobs, and keep the inbox under control. One flat monthly fee. Cancel anytime.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

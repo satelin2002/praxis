@@ -90,10 +90,11 @@ export function HeroSection() {
                   : "translate-y-4 opacity-0",
               )}
             >
-              Buildroom builds and runs AI automations for small businesses —
-              answering calls, handling leads, replying to customers, booking
-              appointments, processing paperwork. Less work, lower costs, no
-              hires. One flat monthly fee. Cancel anytime.
+              Buildroom recovers the revenue small businesses lose to missed
+              leads, slow follow-up, and forgotten review requests. We build
+              and run the AI workflows that reply to every lead, book more
+              jobs, and keep the inbox under control. One flat monthly fee.
+              Cancel anytime.
             </p>
 
             <div
@@ -161,8 +162,8 @@ export function HeroSection() {
 }
 
 const PROOF_ITEMS = [
-  "Built by engineers from Google",
-  "First automation live in 9 days",
+  "Senior engineering-led delivery",
+  "Production-grade reliability",
   "One flat monthly fee",
   "Cancel anytime",
 ] as const;

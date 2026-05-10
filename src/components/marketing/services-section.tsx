@@ -18,7 +18,7 @@ interface Include {
 }
 
 interface Tier {
-  id: "starter" | "growth" | "scale";
+  id: "pilot" | "starter" | "growth";
   name: string;
   pitch: string;
   tagline: string;
@@ -29,7 +29,36 @@ interface Tier {
   includes: ReadonlyArray<Include>;
 }
 
+/* Three tiers, escalating commitment:
+ *   Pilot   — one-time, low-friction first build (anchor for cold buyers)
+ *   Starter — $2,500/mo, the most-popular highlight; this is where most
+ *             subscribers actually land and where we'll quote on calls
+ *   Growth  — $4,500/mo, upgrade for teams ready to automate seriously
+ *
+ * Scale ($8,500/mo) was removed — it overstated capacity for stage zero
+ * and made the page feel agency-tier rather than productized. Add back
+ * later when there's demand from existing subscribers asking for it. */
 const TIERS: ReadonlyArray<Tier> = [
+  {
+    id: "pilot",
+    name: "Pilot",
+    pitch: "Try us with one automation. No commitment to subscribe.",
+    tagline: "Lowest-friction way to start. See us ship before you go monthly.",
+    price: "$1,500",
+    priceSuffix: "one-time",
+    cta: "Start a pilot",
+    includes: [
+      {
+        text: "1 automation built end-to-end",
+        subtext: "scoped on the kickoff call",
+        emphasized: true,
+      },
+      { text: "Up to 3 weeks of build time" },
+      { text: "Full handoff with documentation" },
+      { text: "$1,500 credited toward month one if you continue" },
+      { text: "No subscription required" },
+    ],
+  },
   {
     id: "starter",
     name: "Starter",
@@ -38,6 +67,7 @@ const TIERS: ReadonlyArray<Tier> = [
     price: "$2,500",
     priceSuffix: "/month",
     cta: "Subscribe",
+    highlight: true,
     includes: [
       {
         text: "1 automation slot per month",
@@ -58,7 +88,6 @@ const TIERS: ReadonlyArray<Tier> = [
     price: "$4,500",
     priceSuffix: "/month",
     cta: "Subscribe",
-    highlight: true,
     includes: [
       {
         text: "2 automation slots per month",
@@ -69,27 +98,6 @@ const TIERS: ReadonlyArray<Tier> = [
       { text: "Priority support + monthly sync call" },
       { text: "Custom integrations" },
       { text: "Direct Slack channel" },
-      { text: "Pause or cancel anytime" },
-    ],
-  },
-  {
-    id: "scale",
-    name: "Scale",
-    pitch: "For teams running AI automations seriously.",
-    tagline: "Replaces a small ops team. ($102K/year, no hiring overhead.)",
-    price: "$8,500",
-    priceSuffix: "/month",
-    cta: "Subscribe",
-    includes: [
-      {
-        text: "3 automation slots per month",
-        subtext: "pool for custom systems",
-        emphasized: true,
-      },
-      { text: "Everything we build, monitored and maintained" },
-      { text: "Same-day priority support" },
-      { text: "Founder-led delivery" },
-      { text: "Unlimited custom integrations" },
       { text: "Pause or cancel anytime" },
     ],
   },
@@ -151,12 +159,20 @@ function getSubscribeTarget(
   tierId: Tier["id"],
   tierName: string,
 ): { href: string; isExternal: boolean } {
+  // Pilot is intentionally not self-serve — it routes to a sales
+  // conversation so we can scope the workflow on the kickoff call.
+  if (tierId === "pilot") {
+    const subject = encodeURIComponent("Pilot — start a workflow");
+    return {
+      href: `mailto:hello@buildroom.ai?subject=${subject}`,
+      isExternal: false,
+    };
+  }
+
   const stripeLink =
     tierId === "starter"
       ? process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_STARTER
-      : tierId === "growth"
-        ? process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_GROWTH
-        : process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SCALE;
+      : process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_GROWTH;
 
   if (stripeLink) {
     return { href: stripeLink, isExternal: true };

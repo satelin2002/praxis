@@ -14,21 +14,28 @@ import { cn } from "@/lib/utils";
 
 import { useFadeIn } from "./utils";
 
+/* Order matters: missed-lead recovery + reviews are the wedge for
+   home-services outbound. Phone & call handling moves to position 5
+   because it carries more compliance complexity (call recording,
+   state disclosure laws, A2P) and shouldn't be the lead promise.
+   Both Phone and Customer support open with "approval mode" framing
+   so SMB owners hear "human review first, autopilot later" — the
+   trust-building default they expect. */
 const WORKFLOWS = [
-  {
-    icon: Phone,
-    title: "Phone & call handling",
-    body: "AI receptionist that answers every call, qualifies the caller, books appointments, and texts you a summary. Sounds human. Works 24/7.",
-  },
   {
     icon: Inbox,
     title: "Lead capture & follow-up",
-    body: "Capture leads from your website, ads, and forms. Reply in under 60 seconds. Qualify, score, and book the meeting — automatically.",
+    body: "Capture leads from your website, ads, forms, and missed calls. Reply in under 60 seconds with a personalized message. Qualify, score, and book the meeting — automatically.",
+  },
+  {
+    icon: Star,
+    title: "Review & reputation",
+    body: "Automatically request reviews from happy customers, monitor incoming reviews across platforms, route negative feedback to you privately, and draft public responses for your approval.",
   },
   {
     icon: Headphones,
     title: "Customer support",
-    body: "AI that handles tier-1 questions across email, chat, and SMS. Resolves the easy ones, escalates the rest with full context.",
+    body: "AI drafts replies to tier-1 questions across email, chat, and SMS. Start in approval mode — review every send. Flip to autopilot once you've trained the voice. Hard cases escalate with full context.",
   },
   {
     icon: CalendarCheck,
@@ -36,9 +43,9 @@ const WORKFLOWS = [
     body: "AI that talks to customers, checks your real calendar, books the slot, and sends confirmations and reminders. Works across channels.",
   },
   {
-    icon: Star,
-    title: "Review & reputation",
-    body: "Automatically request reviews from happy customers, monitor incoming reviews across platforms, and draft responses for your approval.",
+    icon: Phone,
+    title: "Phone & call handling",
+    body: "AI receptionist that answers every call, qualifies the caller, books appointments, and texts you a summary. Discloses when required. Start in approval mode — flip to autopilot once you trust the workflow.",
   },
   {
     icon: Wrench,
