@@ -101,7 +101,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontSans.variable, fontMono.variable)}
+      className={cn(
+        "overflow-x-clip antialiased",
+        fontSans.variable,
+        fontMono.variable,
+      )}
     >
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
@@ -111,7 +115,7 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f[]=excon@500,700,800&display=swap"
         />
       </head>
-      <body className="min-h-svh bg-background font-sans text-foreground">
+      <body className="min-h-svh overflow-x-clip bg-background font-sans text-foreground">
         <ThemeProvider>{children}</ThemeProvider>
         <Toaster
           position="bottom-right"
