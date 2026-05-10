@@ -24,15 +24,43 @@ export default function OpenGraphImage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <svg width="64" height="64" viewBox="0 0 40 40" fill="none">
-            <path
-              d="M24 8 L8 8 L8 24"
-              stroke="#121212"
-              strokeWidth="3.2"
-              strokeLinecap="round"
-              strokeLinejoin="miter"
-              strokeOpacity="0.94"
+            <defs>
+              <radialGradient
+                id="og-sphere-body"
+                cx="0.32"
+                cy="0.28"
+                r="0.85"
+                fx="0.32"
+                fy="0.28"
+              >
+                <stop offset="0%" stopColor="#5BD97C" />
+                <stop offset="55%" stopColor="#16A34A" />
+                <stop offset="100%" stopColor="#15803D" />
+              </radialGradient>
+              <radialGradient id="og-sphere-gloss" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
+                <stop offset="60%" stopColor="#FFFFFF" stopOpacity="0.18" />
+                <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="20" cy="20" r="18" fill="url(#og-sphere-body)" />
+            <ellipse
+              cx="14.5"
+              cy="12"
+              rx="8"
+              ry="3.4"
+              fill="url(#og-sphere-gloss)"
+              transform="rotate(-28 14.5 12)"
             />
-            <circle cx="14.6" cy="14.6" r="2.4" fill="#16A34A" />
+            <circle
+              cx="20"
+              cy="20"
+              r="17.6"
+              fill="none"
+              stroke="#121212"
+              strokeOpacity="0.06"
+              strokeWidth="0.8"
+            />
           </svg>
           <span
             style={{
