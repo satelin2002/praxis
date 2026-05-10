@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { BOOKING_URL } from "@/lib/cta-targets";
+import { BOOKING_URL, IS_BOOKING_EXTERNAL } from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 /**
@@ -75,6 +75,8 @@ export function StickyMobileCta() {
     >
       <Link
         href={BOOKING_URL}
+        target={IS_BOOKING_EXTERNAL ? "_blank" : undefined}
+        rel={IS_BOOKING_EXTERNAL ? "noopener noreferrer" : undefined}
         tabIndex={visible ? 0 : -1}
         className={cn(
           "group pointer-events-auto flex items-center justify-between gap-3 rounded-full bg-primary px-5 py-3.5 text-primary-foreground shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90",

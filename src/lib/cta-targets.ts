@@ -13,11 +13,10 @@
 
 /**
  * Destination for "Book a free workflow audit" / "Discuss a pilot"
- * style CTAs. Replace with the live Cal.com / Calendly URL when ready
- * — e.g. "https://cal.com/buildroom/15min".
+ * style CTAs. Live Calendly link.
  */
 export const BOOKING_URL =
-  "mailto:hello@buildroom.ai?subject=Free%20workflow%20audit";
+  "https://calendly.com/buildroom/free-workflow-audit";
 
 /**
  * Plain mailto for "or email us" links.

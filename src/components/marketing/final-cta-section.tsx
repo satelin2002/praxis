@@ -4,7 +4,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { BOOKING_URL, EMAIL_DISPLAY, EMAIL_URL } from "@/lib/cta-targets";
+import {
+  BOOKING_URL,
+  EMAIL_DISPLAY,
+  EMAIL_URL,
+  IS_BOOKING_EXTERNAL,
+} from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 import { useFadeIn } from "./utils";
@@ -52,7 +57,11 @@ export function FinalCtaSection() {
             size="xl"
             className="group shadow-lg shadow-primary/20"
           >
-            <Link href={BOOKING_URL}>
+            <Link
+              href={BOOKING_URL}
+              target={IS_BOOKING_EXTERNAL ? "_blank" : undefined}
+              rel={IS_BOOKING_EXTERNAL ? "noopener noreferrer" : undefined}
+            >
               Book a free workflow audit
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>

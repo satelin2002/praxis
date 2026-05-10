@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BackgroundOrbs } from "@/components/shared/background-orbs";
 import { CanvasDotGrid } from "@/components/shared/canvas-dot-grid";
-import { BOOKING_URL } from "@/lib/cta-targets";
+import { BOOKING_URL, IS_BOOKING_EXTERNAL } from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 import { LiveWorkflowCard } from "./live-workflow-card";
@@ -112,7 +112,11 @@ export function HeroSection() {
                 size="xl"
                 className="group shadow-lg shadow-primary/20"
               >
-                <Link href={BOOKING_URL}>
+                <Link
+                  href={BOOKING_URL}
+                  target={IS_BOOKING_EXTERNAL ? "_blank" : undefined}
+                  rel={IS_BOOKING_EXTERNAL ? "noopener noreferrer" : undefined}
+                >
                   Book a free workflow audit
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
