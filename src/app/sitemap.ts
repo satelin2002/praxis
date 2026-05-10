@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://buildroom.ai";
+  "https://tryworkflowcrew.com";
 
 /*
  * Sitemap excludes /insights and /insights/[slug] while the blog is paused.

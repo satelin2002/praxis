@@ -24,7 +24,7 @@ const COLUMNS: ReadonlyArray<{
     links: [
       { label: "FAQ", href: "/#faq" },
       { label: "Book free audit", href: BOOKING_URL },
-      { label: "hello@buildroom.ai", href: "mailto:hello@buildroom.ai" },
+      { label: "hello@tryworkflowcrew.com", href: "mailto:hello@tryworkflowcrew.com" },
     ],
   },
   {
@@ -44,8 +44,8 @@ export function MarketingFooter() {
           <div className="flex max-w-sm flex-col gap-4">
             <div className="flex items-center gap-2.5 text-foreground">
               <Logo size={28} />
-              <span className="text-xl font-bold tracking-tight">
-                Buildroom
+              <span className="font-heading text-xl font-bold tracking-tight">
+                Workflow Crew
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -86,17 +86,17 @@ export function MarketingFooter() {
         </div>
 
         <div className="flex flex-col gap-2 border-t border-border/40 pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} buildroom.ai. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Workflow Crew. All rights reserved.</p>
           <p className="text-muted-foreground/70 font-mono text-xs uppercase tracking-wider">
             Stop doing the work AI can do for you.
           </p>
         </div>
 
         {/* Independence disclaimer — keeps anyone reading the footer honest
-            about what Buildroom is and isn't. Same line we'll surface at
+            about what Workflow Crew is and isn't. Same line we'll surface at
             the top of /privacy and /terms. */}
         <p className="border-t border-border/40 pt-6 text-xs leading-relaxed text-muted-foreground/70">
-          Buildroom is an independent business and is not affiliated with,
+          Workflow Crew is an independent business and is not affiliated with,
           sponsored by, endorsed by, or associated with Google, Alphabet, or
           any current or former employer of its founders.
         </p>

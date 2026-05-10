@@ -21,13 +21,13 @@ export const BOOKING_URL =
 /**
  * Plain mailto for "or email us" links.
  */
-export const EMAIL_URL = "mailto:hello@buildroom.ai";
+export const EMAIL_URL = "mailto:hello@tryworkflowcrew.com";
 
 /**
  * The display address (used for visible link text where we want the
  * email to read as the address, not "click here").
  */
-export const EMAIL_DISPLAY = "hello@buildroom.ai";
+export const EMAIL_DISPLAY = "hello@tryworkflowcrew.com";
 
 /**
  * `true` when {@link BOOKING_URL} is the mailto fallback rather than

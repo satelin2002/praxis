@@ -64,7 +64,7 @@ export default async function AdminDashboardPage() {
         <div className="mx-auto flex h-16 w-full max-w-300 items-center gap-4 px-4 sm:px-6">
           <Link href="/" className="inline-flex items-center gap-2.5">
             <Logo size={24} />
-            <span className="font-semibold tracking-tight">buildroom.ai admin</span>
+            <span className="font-semibold tracking-tight">Workflow Crew admin</span>
           </Link>
           <span className="ml-3 font-mono text-xs uppercase tracking-wider text-muted-foreground/70">
             internal

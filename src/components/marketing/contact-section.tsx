@@ -92,10 +92,10 @@ export function ContactSection() {
               <Mail className="size-4 text-primary" />
               Or email{" "}
               <a
-                href="mailto:hello@buildroom.ai"
+                href="mailto:hello@tryworkflowcrew.com"
                 className="text-info underline-offset-4 hover:underline"
               >
-                hello@buildroom.ai
+                hello@tryworkflowcrew.com
               </a>
             </li>
           </ul>

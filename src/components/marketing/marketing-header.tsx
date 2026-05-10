@@ -55,12 +55,12 @@ export function MarketingHeader() {
         <div className="mx-auto flex h-16 w-full max-w-300 items-center gap-4 px-4 sm:px-6">
           <Link
             href="/"
-            aria-label="Buildroom home"
+            aria-label="Workflow Crew home"
             className="inline-flex shrink-0 items-center gap-2.5 text-foreground"
           >
             <Logo size={32} />
-            <span className="text-[22px] font-bold tracking-tight">
-              Buildroom
+            <span className="font-heading text-[22px] font-bold tracking-tight">
+              Workflow Crew
             </span>
           </Link>
 
@@ -131,12 +131,12 @@ function MobileMenu({
         <Link
           href="/"
           onClick={onClose}
-          aria-label="Buildroom home"
+          aria-label="Workflow Crew home"
           className="inline-flex shrink-0 items-center gap-2.5 text-foreground"
         >
           <Logo size={32} />
-          <span className="text-[22px] font-bold tracking-tight">
-            Buildroom
+          <span className="font-heading text-[22px] font-bold tracking-tight">
+            Workflow Crew
           </span>
         </Link>
 
@@ -186,11 +186,11 @@ function MobileMenu({
         <p className="mt-3 text-center text-xs text-muted-foreground">
           Or email{" "}
           <a
-            href="mailto:hello@buildroom.ai"
+            href="mailto:hello@tryworkflowcrew.com"
             onClick={onClose}
             className="text-info underline-offset-4 hover:underline"
           >
-            hello@buildroom.ai
+            hello@tryworkflowcrew.com
           </a>
         </p>
       </div>

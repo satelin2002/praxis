@@ -9,7 +9,7 @@ const LAST_UPDATED = "May 8, 2026";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Buildroom collects, uses, and protects your information.",
+    "How Workflow Crew collects, uses, and protects your information.",
 };
 
 /*
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
             <strong className="font-medium text-foreground">
               Independence:
             </strong>{" "}
-            Buildroom is an independent business and is not affiliated with,
+            Workflow Crew is an independent business and is not affiliated with,
             sponsored by, endorsed by, or associated with Google, Alphabet,
             or any current or former employer of its founders.
           </p>
@@ -95,7 +95,7 @@ export default function PrivacyPage() {
 
           <Section title="Who we share data with">
             <p>
-              Only the operational service providers we need to run Buildroom
+              Only the operational service providers we need to run Workflow Crew
               — and only the data each one strictly needs:
             </p>
             <ul>
@@ -166,7 +166,7 @@ export default function PrivacyPage() {
               href="/"
               className="text-info underline-offset-4 hover:underline"
             >
-              ← Back to Buildroom
+              ← Back to Workflow Crew
             </Link>
           </footer>
         </article>
@@ -198,10 +198,10 @@ function Section({
 function MailLink() {
   return (
     <a
-      href="mailto:hello@buildroom.ai"
+      href="mailto:hello@tryworkflowcrew.com"
       className="text-info underline-offset-4 hover:underline"
     >
-      hello@buildroom.ai
+      hello@tryworkflowcrew.com
     </a>
   );
 }

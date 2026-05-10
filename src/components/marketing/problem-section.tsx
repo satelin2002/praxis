@@ -16,7 +16,7 @@ const PROBLEMS = [
   {
     icon: Users,
     title: "Hiring isn't the answer.",
-    body: "A full-time receptionist runs $40K–$60K. A junior ops hire runs $50K–$80K. An AI engineer is $250K+. Buildroom replaces most of that work for $30K/year, flat — no benefits, no payroll tax, no churn risk.",
+    body: "A full-time receptionist runs $40K–$60K. A junior ops hire runs $50K–$80K. An AI engineer is $250K+. Workflow Crew replaces most of that work for $30K/year, flat — no benefits, no payroll tax, no churn risk.",
   },
   {
     icon: TrendingDown,

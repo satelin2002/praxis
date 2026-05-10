@@ -36,7 +36,7 @@ export function WhoItsForSection() {
     <section
       ref={ref}
       className="border-b border-border/40 bg-background px-4 py-10 sm:px-6"
-      aria-label="Who buildroom.ai is for"
+      aria-label="Who Workflow Crew is for"
     >
       <div
         className={cn(

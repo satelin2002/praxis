@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://buildroom.ai";
+  "https://tryworkflowcrew.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {

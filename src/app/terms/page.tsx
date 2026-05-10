@@ -9,7 +9,7 @@ const LAST_UPDATED = "May 8, 2026";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms governing your use of Buildroom services and the subscription model.",
+    "The terms governing your use of Workflow Crew services and the subscription model.",
 };
 
 /*
@@ -41,14 +41,14 @@ export default function TermsPage() {
             <strong className="font-medium text-foreground">
               Independence:
             </strong>{" "}
-            Buildroom is an independent business and is not affiliated with,
+            Workflow Crew is an independent business and is not affiliated with,
             sponsored by, endorsed by, or associated with Google, Alphabet,
             or any current or former employer of its founders.
           </p>
 
           <Section title="The short version">
             <p>
-              You subscribe to Buildroom monthly. We build and maintain AI
+              You subscribe to Workflow Crew monthly. We build and maintain AI
               workflows for you. You can pause or cancel anytime. You own
               what we build — code, prompts, integrations, and
               documentation. We&rsquo;re liable up to the most recent
@@ -60,15 +60,15 @@ export default function TermsPage() {
             <p>
               These Terms of Service (&ldquo;Terms&rdquo;) are an agreement
               between you (&ldquo;you,&rdquo; &ldquo;Customer&rdquo;) and
-              Buildroom (&ldquo;we,&rdquo; &ldquo;us,&rdquo;
-              &ldquo;Buildroom&rdquo;). By subscribing to a Buildroom plan
+              Workflow Crew (&ldquo;we,&rdquo; &ldquo;us,&rdquo;
+              &ldquo;Workflow Crew&rdquo;). By subscribing to a Workflow Crew plan
               or otherwise using the service, you agree to these Terms.
             </p>
           </Section>
 
           <Section title="2. The service">
             <p>
-              Buildroom provides AI workflow automation as a monthly
+              Workflow Crew provides AI workflow automation as a monthly
               subscription. Each plan includes a capacity for active
               workflows, a build cadence, ongoing maintenance, and the
               support level described on the pricing page at the time you
@@ -130,7 +130,7 @@ export default function TermsPage() {
               use any Background IP embedded in your Deliverables.
             </p>
             <p>
-              Buildroom branding, marketing materials, and the website are
+              Workflow Crew branding, marketing materials, and the website are
               ours.
             </p>
           </Section>
@@ -142,7 +142,7 @@ export default function TermsPage() {
                 data, and credentials we need to do the work.
               </li>
               <li>
-                Don&rsquo;t use Buildroom or anything we build for unlawful
+                Don&rsquo;t use Workflow Crew or anything we build for unlawful
                 purposes, to harm others, or to violate third-party rights.
               </li>
               <li>
@@ -183,7 +183,7 @@ export default function TermsPage() {
 
           <Section title="8. Limitation of liability">
             <p>
-              To the maximum extent allowed by law, Buildroom&rsquo;s total
+              To the maximum extent allowed by law, Workflow Crew&rsquo;s total
               liability arising out of or relating to these Terms or the
               service is limited to the amount you paid us in the most
               recent 1 month. Neither party is liable for indirect,
@@ -218,7 +218,7 @@ export default function TermsPage() {
           <Section title="11. Governing law">
             <p>
               These Terms are governed by the laws of the jurisdiction in
-              which Buildroom is registered. Disputes will be handled in
+              which Workflow Crew is registered. Disputes will be handled in
               the courts of that jurisdiction.
             </p>
           </Section>
@@ -234,7 +234,7 @@ export default function TermsPage() {
               href="/"
               className="text-info underline-offset-4 hover:underline"
             >
-              ← Back to Buildroom
+              ← Back to Workflow Crew
             </Link>
           </footer>
         </article>
@@ -266,10 +266,10 @@ function Section({
 function MailLink() {
   return (
     <a
-      href="mailto:hello@buildroom.ai"
+      href="mailto:hello@tryworkflowcrew.com"
       className="text-info underline-offset-4 hover:underline"
     >
-      hello@buildroom.ai
+      hello@tryworkflowcrew.com
     </a>
   );
 }

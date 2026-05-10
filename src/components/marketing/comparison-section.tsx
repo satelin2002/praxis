@@ -106,7 +106,7 @@ export function ComparisonSection() {
               rows={ROWS.map((r) => ({ label: r.label, cell: r.diy }))}
             />
             <ColumnCard
-              label="Buildroom"
+              label="Workflow Crew"
               kind="us"
               rows={ROWS.map((r) => ({ label: r.label, cell: r.us }))}
             />
@@ -126,7 +126,7 @@ export function ComparisonSection() {
                     DIY tools
                   </th>
                   <th className="w-[26%] bg-primary/5 px-6 py-5 text-base font-semibold text-primary">
-                    Buildroom
+                    Workflow Crew
                   </th>
                 </tr>
               </thead>

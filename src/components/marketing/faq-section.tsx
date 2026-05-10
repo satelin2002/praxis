@@ -22,7 +22,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What if my project is bigger than three slots?",
-    a: "For projects beyond the standard subscription scope — full automation programs, multi-agent platforms, regulated systems — we offer custom engagements starting at $25,000. Email hello@buildroom.ai with what you're trying to build and we'll scope it.",
+    a: "For projects beyond the standard subscription scope — full automation programs, multi-agent platforms, regulated systems — we offer custom engagements starting at $25,000. Email hello@tryworkflowcrew.com with what you're trying to build and we'll scope it.",
   },
   {
     q: "Where do my automations run?",
@@ -73,12 +73,12 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
     a: "No. We tune voice and tone to match your business. For phone-handling automations, the assistant introduces itself as an AI assistant when the caller asks or when applicable disclosure laws require it — and otherwise just gets on with helping the caller.",
   },
   {
-    q: "Is Buildroom affiliated with Google or Alphabet?",
-    a: "No. Buildroom is an independent business and is not affiliated with, sponsored by, endorsed by, or associated with Google, Alphabet, or any current or former employer of its founders.",
+    q: "Is Workflow Crew affiliated with Google or Alphabet?",
+    a: "No. Workflow Crew is an independent business and is not affiliated with, sponsored by, endorsed by, or associated with Google, Alphabet, or any current or former employer of its founders.",
   },
   {
     q: "Do you use customer data to train models?",
-    a: "No, not unless separately agreed in writing. We use the model providers you're paying for (OpenAI, Anthropic, etc.) under their standard terms — not a Buildroom-trained model. Your business data isn't used to train anything.",
+    a: "No, not unless separately agreed in writing. We use the model providers you're paying for (OpenAI, Anthropic, etc.) under their standard terms — not a Workflow Crew-trained model. Your business data isn't used to train anything.",
   },
   {
     q: "Can I approve messages before they go out?",
@@ -130,10 +130,10 @@ export function FaqSection() {
           <p className="mt-8 text-center text-sm text-muted-foreground">
             Have a different question? Email{" "}
             <a
-              href="mailto:hello@buildroom.ai"
+              href="mailto:hello@tryworkflowcrew.com"
               className="text-info underline-offset-4 hover:underline"
             >
-              hello@buildroom.ai
+              hello@tryworkflowcrew.com
             </a>
             {" "}— we usually reply within an hour.
           </p>

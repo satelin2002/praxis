@@ -20,7 +20,7 @@ export function LoginForm() {
         <div className="flex flex-col items-center gap-3">
           <Logo size={36} />
           <h1 className="text-xl font-semibold tracking-tight">
-            buildroom.ai admin
+            Workflow Crew admin
           </h1>
           <p className="text-center text-sm text-muted-foreground">
             Stub auth — set <code className="font-mono text-xs">ADMIN_PASSWORD</code>{" "}

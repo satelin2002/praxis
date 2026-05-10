@@ -1,4 +1,4 @@
--- buildroom.ai · Supabase schema
+-- Workflow Crew · Supabase schema
 --
 -- Apply via: Supabase SQL Editor → paste & run, or via supabase CLI.
 -- All tables protected by RLS. Public-facing forms use a service role

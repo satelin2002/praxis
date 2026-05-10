@@ -332,7 +332,7 @@ export function LiveWorkflowCard({ className }: { className?: string }) {
 
         <div className="flex items-center gap-2 border-t border-border/60 bg-secondary/30 px-5 py-3 sm:px-6">
           <span className="truncate font-mono text-[11px] uppercase tracking-wider text-muted-foreground/80">
-            buildroom · {automationLabel}
+            Workflow Crew · {automationLabel}
           </span>
           <span
             className={cn(

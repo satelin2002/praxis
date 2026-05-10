@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "buildroom.ai — AI workflow automation for modern teams";
+export const alt = "Workflow Crew — AI workflow automation for modern teams";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -41,7 +41,7 @@ export default function OpenGraphImage() {
               letterSpacing: -0.8,
             }}
           >
-            Buildroom
+            Workflow Crew
           </span>
         </div>
 
@@ -98,7 +98,7 @@ export default function OpenGraphImage() {
               fontSize: 16,
             }}
           >
-            buildroom.ai
+            tryworkflowcrew.com
           </span>
         </div>
       </div>

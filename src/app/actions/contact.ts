@@ -90,7 +90,7 @@ export async function submitContact(
     console.error("[contact] supabase insert failed:", error);
     return {
       status: "error",
-      message: "Couldn't send right now — email hello@buildroom.ai instead.",
+      message: "Couldn't send right now — email hello@tryworkflowcrew.com instead.",
     };
   }
 

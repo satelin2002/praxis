@@ -19,24 +19,24 @@ const fontMono = Spline_Sans_Mono({
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://buildroom.ai";
+  "https://tryworkflowcrew.com";
 
 const DEFAULT_TITLE =
-  "buildroom.ai — AI automation for small businesses";
+  "Workflow Crew — AI automation for small businesses";
 const DEFAULT_DESCRIPTION =
-  "Buildroom builds and runs AI automations for small businesses — lead follow-up, customer support, booking, review requests, inbox triage, and other repeatable work. Save time, reduce manual work, recover revenue. One flat monthly fee. Cancel anytime.";
+  "Workflow Crew builds and runs AI automations for small businesses — lead follow-up, customer support, booking, review requests, inbox triage, and other repeatable work. Save time, reduce manual work, recover revenue. One flat monthly fee. Cancel anytime.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: DEFAULT_TITLE,
-    template: "%s · buildroom.ai",
+    template: "%s · Workflow Crew",
   },
   description: DEFAULT_DESCRIPTION,
-  applicationName: "buildroom.ai",
-  authors: [{ name: "buildroom.ai" }],
-  creator: "buildroom.ai",
-  publisher: "buildroom.ai",
+  applicationName: "Workflow Crew",
+  authors: [{ name: "Workflow Crew" }],
+  creator: "Workflow Crew",
+  publisher: "Workflow Crew",
   keywords: [
     "AI automation for small business",
     "AI receptionist",
@@ -49,17 +49,17 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    siteName: "buildroom.ai",
+    siteName: "Workflow Crew",
     url: SITE_URL,
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
     locale: "en_US",
     images: [
       {
-        url: "/images/buildroom-og.png",
+        url: "/images/workflowcrew-og.png",
         width: 1200,
         height: 630,
-        alt: "buildroom.ai — AI automation for small businesses",
+        alt: "Workflow Crew — AI automation for small businesses",
       },
     ],
   },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: ["/images/buildroom-og.png"],
+    images: ["/images/workflowcrew-og.png"],
   },
   robots: {
     index: true,

@@ -68,7 +68,7 @@ export function StatsSection() {
           )}
         >
           <span className="font-mono text-xs uppercase tracking-wider text-primary">
-            buildroom.ai in numbers
+            Workflow Crew in numbers
           </span>
           <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
             What &ldquo;production-grade&rdquo; actually looks like.

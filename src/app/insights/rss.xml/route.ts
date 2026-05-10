@@ -1,6 +1,6 @@
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://buildroom.ai";
+  "https://tryworkflowcrew.com";
 
 export const revalidate = 3600;
 
@@ -16,7 +16,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>buildroom.ai · Insights</title>
+    <title>Workflow Crew · Insights</title>
     <link>${SITE_URL}/insights</link>
     <atom:link href="${SITE_URL}/insights/rss.xml" rel="self" type="application/rss+xml" />
     <description>Long-form posts from real engagements — publishing soon.</description>

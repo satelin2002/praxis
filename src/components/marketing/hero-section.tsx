@@ -91,7 +91,7 @@ export function HeroSection() {
                   : "translate-y-4 opacity-0",
               )}
             >
-              Buildroom builds and runs AI automations for small businesses
+              Workflow Crew builds and runs AI automations for small businesses
               — lead follow-up, customer support, booking, review requests,
               inbox triage, and other repeatable work. Save time, reduce
               manual work, recover revenue. One flat monthly fee. Cancel

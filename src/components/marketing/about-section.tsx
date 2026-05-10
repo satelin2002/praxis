@@ -36,7 +36,7 @@ export function AboutSection() {
         >
           <p className="text-balance text-lg leading-relaxed text-muted-foreground sm:text-xl">
             We&rsquo;re a small team of senior AI engineers with deep
-            production-AI experience. We started Buildroom because we kept
+            production-AI experience. We started Workflow Crew because we kept
             seeing companies invest serious money in AI projects that never
             made it to production — not because the technology wasn&rsquo;t
             ready, but because the engineering rigor wasn&rsquo;t there. We
