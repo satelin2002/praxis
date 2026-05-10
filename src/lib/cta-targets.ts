@@ -16,7 +16,7 @@
  * style CTAs. Live Calendly link.
  */
 export const BOOKING_URL =
-  "https://calendly.com/buildroom/free-workflow-audit";
+  "https://calendly.com/workflowcrew/free-workflow-audit";
 
 /**
  * Plain mailto for "or email us" links.
