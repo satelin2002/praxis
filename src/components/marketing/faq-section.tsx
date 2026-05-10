@@ -14,15 +14,15 @@ import { useFadeIn } from "./utils";
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
     q: "How does the queue work?",
-    a: "Drop requests into your board in priority order. We work on one at a time on Pilot or Starter, two at a time on Growth. When one ships, we start the next.",
+    a: "Drop requests into your shared board in priority order. We work on one at a time. On Starter that's 1 new workflow per month, on Growth it's up to 2 per month. When one ships, the next begins. Maintenance on everything we've already built runs in parallel and doesn't count against your monthly capacity.",
   },
   {
-    q: "What counts as one new automation?",
-    a: 'Every build is classified as standard (1 slot), complex (2 slots), or major (3 slots) — see "What counts as one automation slot?" on the pricing section. We classify in writing before any work starts. We\'re generous about scope at the boundary — if it\'s borderline, we err in your favor.',
+    q: "What counts as a workflow?",
+    a: "A workflow is one repeatable business process with a clear trigger and outcome — for example, \"follow up with new leads,\" \"request reviews after completed jobs,\" \"draft replies to support emails,\" or \"send estimate follow-ups.\" We scope each workflow in writing before we build, and we're generous at the boundary — if a build is borderline, we err in your favor.",
   },
   {
-    q: "What if my project is bigger than three slots?",
-    a: "For projects beyond the standard subscription scope — full automation programs, multi-agent platforms, regulated systems — we offer custom engagements starting at $25,000. Email hello@tryworkflowcrew.com with what you're trying to build and we'll scope it.",
+    q: "What if my project is bigger than the monthly subscription scope?",
+    a: "For projects that go beyond a typical workflow — full automation programs, multi-agent platforms, regulated systems — we offer custom engagements starting at $25,000. Email hello@tryworkflowcrew.com with what you're trying to build and we'll scope it.",
   },
   {
     q: "Where do my automations run?",

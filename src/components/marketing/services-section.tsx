@@ -43,19 +43,20 @@ const TIERS: ReadonlyArray<Tier> = [
   {
     id: "pilot",
     name: "Pilot",
-    pitch: "Try us with one automation. No commitment to subscribe.",
-    tagline: "Lowest-friction way to start. See us ship before you go monthly.",
+    pitch: "Build one workflow before going monthly.",
+    tagline: "Lowest-friction way to start. See us ship before you commit.",
     price: "$1,500",
     priceSuffix: "one-time",
     cta: "Discuss a pilot",
     includes: [
       {
-        text: "1 automation built end-to-end",
+        text: "One focused workflow, built end-to-end",
         subtext: "scoped on the kickoff call",
         emphasized: true,
       },
-      { text: "Up to 3 weeks of build time" },
-      { text: "Full handoff with documentation" },
+      { text: "Standard workflows usually live in 1–2 weeks" },
+      { text: "Human approval mode where it matters" },
+      { text: "Documentation + handoff to your team" },
       { text: "$1,500 credited toward month one if you continue" },
       { text: "No subscription required" },
     ],
@@ -63,7 +64,7 @@ const TIERS: ReadonlyArray<Tier> = [
   {
     id: "starter",
     name: "Starter",
-    pitch: "For solo operators shipping their first automations.",
+    pitch: "Build one new workflow each month.",
     tagline: "Replaces a part-time hire. ($30K/year, fully managed.)",
     price: "$2,500",
     priceSuffix: "/month",
@@ -71,12 +72,13 @@ const TIERS: ReadonlyArray<Tier> = [
     highlight: true,
     includes: [
       {
-        text: "1 automation slot per month",
-        subtext: "save up for complex builds",
+        text: "Up to 1 new workflow per month",
+        subtext: "scoped before we build",
         emphasized: true,
       },
-      { text: "Everything we build, monitored and maintained" },
-      { text: "Async support (Notion + email)" },
+      { text: "Monitoring + maintenance for every workflow we've built" },
+      { text: "Bug fixes and small improvements included" },
+      { text: "Async support (email + shared workspace)" },
       { text: "Standard integrations" },
       { text: "Pause or cancel anytime" },
     ],
@@ -84,19 +86,20 @@ const TIERS: ReadonlyArray<Tier> = [
   {
     id: "growth",
     name: "Growth",
-    pitch: "For growing businesses automating across the team.",
+    pitch: "Build up to two new workflows each month.",
     tagline: "Replaces a full-time ops hire. ($54K/year, no payroll, no churn.)",
     price: "$4,500",
     priceSuffix: "/month",
     cta: "Talk through Growth",
     includes: [
       {
-        text: "2 automation slots per month",
-        subtext: "flexible across standard and complex",
+        text: "Up to 2 new workflows per month",
+        subtext: "scoped before we build",
         emphasized: true,
       },
-      { text: "Everything we build, monitored and maintained" },
-      { text: "Priority support + monthly sync call" },
+      { text: "Monitoring + maintenance for every workflow we've built" },
+      { text: "Bug fixes and improvements — priority queue" },
+      { text: "Monthly workflow review call" },
       { text: "Custom integrations" },
       { text: "Direct Slack channel" },
       { text: "Pause or cancel anytime" },
@@ -249,79 +252,43 @@ function TierCard({ tier }: { tier: Tier }) {
   );
 }
 
-interface SlotClass {
-  name: string;
-  slots: string;
-  body: string;
-  examples: string;
-}
-
-const SLOT_CLASSES: ReadonlyArray<SlotClass> = [
-  {
-    name: "Standard",
-    slots: "1 slot",
-    body: "Focused workflow touching 1–3 systems. Most builds are this.",
-    examples:
-      "email triage, lead qualifier, appointment booker, review flow, basic support agent.",
-  },
-  {
-    name: "Complex",
-    slots: "2 slots",
-    body: "Multi-step workflows with multiple agents, custom integrations, or non-standard data handling.",
-    examples:
-      "multi-channel support with escalation, lead enrichment with research, custom CRM workflows.",
-  },
-  {
-    name: "Major",
-    slots: "3 slots",
-    body: "Custom multi-agent systems, regulated workflows, or anything requiring 4+ weeks of engineering.",
-    examples:
-      "multi-agent review with audit trails, full ops platforms, compliance-bound systems.",
-  },
-];
-
+/**
+ * Two short clarifications below the pricing cards. Replaced the
+ * previous "automation slots" explainer (standard / complex / major
+ * 1/2/3-slot taxonomy) — readers were confused about whether older
+ * builds kept their support after a new month started. Cleaner model:
+ *   • a workflow is one repeatable business process
+ *   • monthly subscribers get N new workflows + maintenance on
+ *     everything we've already built for them
+ */
 function SlotClassesExplainer() {
   return (
-    <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-8">
-      <h3 className="font-mono text-xs uppercase tracking-wider text-primary">
-        What counts as one automation slot?
-      </h3>
-      <p className="mt-3 text-base leading-relaxed text-foreground/85">
-        We classify every build into one of three types — standard, complex,
-        or major — and tell you upfront, in writing, before any work starts.
-      </p>
+    <div className="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
+      <div className="rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-7">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-primary">
+          What counts as a workflow?
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-foreground/85">
+          A workflow is one repeatable business process with a clear trigger
+          and outcome — for example, &ldquo;follow up with new
+          leads,&rdquo; &ldquo;request reviews after completed jobs,&rdquo;
+          &ldquo;draft replies to support emails,&rdquo; or &ldquo;send
+          estimate follow-ups.&rdquo; We scope each workflow before we build
+          so there are no surprises.
+        </p>
+      </div>
 
-      <ul className="mt-5 flex flex-col divide-y divide-border/60">
-        {SLOT_CLASSES.map((cls) => (
-          <li
-            key={cls.name}
-            className="flex flex-col gap-1.5 py-4 first:pt-0 last:pb-0"
-          >
-            <div className="flex items-center gap-2.5">
-              <span className="text-sm font-semibold text-foreground">
-                {cls.name}
-              </span>
-              <span className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-primary">
-                {cls.slots}
-              </span>
-            </div>
-            <p className="text-sm leading-relaxed text-foreground/80">
-              {cls.body}
-            </p>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              <span className="font-medium text-muted-foreground/90">
-                Examples:
-              </span>{" "}
-              {cls.examples}
-            </p>
-          </li>
-        ))}
-      </ul>
-
-      <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-        Slots roll forward — save them for bigger builds, or stack across
-        months for major work.
-      </p>
+      <div className="rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-7">
+        <h3 className="font-mono text-xs uppercase tracking-wider text-primary">
+          What happens to workflows after they&rsquo;re built?
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-foreground/85">
+          On a monthly plan, we monitor and maintain every workflow
+          we&rsquo;ve built for you — bug fixes, model updates,
+          integration tweaks. If you cancel, the workflows stay live on
+          your accounts; we just stop monitoring and improving them.
+        </p>
+      </div>
     </div>
   );
 }
