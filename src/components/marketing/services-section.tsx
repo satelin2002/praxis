@@ -18,10 +18,22 @@ interface Include {
   emphasized?: boolean;
 }
 
+/**
+ * `pitch` is split into three parts so the centre `accent` phrase
+ * can render in primary green (the part the buyer should remember).
+ * `pre` and `post` render in foreground; spaces between parts are
+ * inserted by the renderer so the data stays clean.
+ */
+interface TierPitch {
+  pre: string;
+  accent: string;
+  post: string;
+}
+
 interface Tier {
   id: "pilot" | "starter" | "growth";
   name: string;
-  pitch: string;
+  pitch: TierPitch;
   tagline: string;
   price: string;
   priceSuffix: string;
@@ -43,7 +55,11 @@ const TIERS: ReadonlyArray<Tier> = [
   {
     id: "pilot",
     name: "Pilot",
-    pitch: "Build one workflow before going monthly.",
+    pitch: {
+      pre: "Build",
+      accent: "one workflow",
+      post: "before going monthly.",
+    },
     tagline: "Lowest-friction way to start. See us ship before you commit.",
     price: "$1,500",
     priceSuffix: "one-time",
@@ -64,7 +80,11 @@ const TIERS: ReadonlyArray<Tier> = [
   {
     id: "starter",
     name: "Starter",
-    pitch: "Build one new workflow each month.",
+    pitch: {
+      pre: "Build",
+      accent: "one new workflow",
+      post: "each month.",
+    },
     tagline: "Replaces a part-time hire. ($30K/year, fully managed.)",
     price: "$2,500",
     priceSuffix: "/month",
@@ -86,7 +106,11 @@ const TIERS: ReadonlyArray<Tier> = [
   {
     id: "growth",
     name: "Growth",
-    pitch: "Build up to two new workflows each month.",
+    pitch: {
+      pre: "Build up to",
+      accent: "two new workflows",
+      post: "each month.",
+    },
     tagline: "Replaces a full-time ops hire. ($54K/year, no payroll, no churn.)",
     price: "$4,500",
     priceSuffix: "/month",
@@ -205,8 +229,10 @@ function TierCard({ tier }: { tier: Tier }) {
         </p>
       </div>
 
-      <p className="text-sm font-semibold leading-relaxed text-foreground">
-        {tier.pitch}
+      <p className="text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl">
+        {tier.pitch.pre}{" "}
+        <span className="text-primary">{tier.pitch.accent}</span>{" "}
+        {tier.pitch.post}
       </p>
 
       <ul className="flex flex-1 flex-col gap-2.5">
@@ -264,11 +290,14 @@ function TierCard({ tier }: { tier: Tier }) {
 function SlotClassesExplainer() {
   return (
     <div className="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
-      <div className="rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-7">
-        <h3 className="font-mono text-xs uppercase tracking-wider text-primary">
+      <div className="flex flex-col gap-3 rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-7">
+        <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
+          FAQ
+        </span>
+        <h3 className="text-lg font-semibold leading-tight tracking-tight text-foreground sm:text-xl">
           What counts as a workflow?
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/85">
+        <p className="text-sm leading-relaxed text-muted-foreground">
           A workflow is one repeatable business process with a clear trigger
           and outcome — for example, &ldquo;follow up with new
           leads,&rdquo; &ldquo;request reviews after completed jobs,&rdquo;
@@ -278,11 +307,14 @@ function SlotClassesExplainer() {
         </p>
       </div>
 
-      <div className="rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-7">
-        <h3 className="font-mono text-xs uppercase tracking-wider text-primary">
+      <div className="flex flex-col gap-3 rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-7">
+        <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
+          FAQ
+        </span>
+        <h3 className="text-lg font-semibold leading-tight tracking-tight text-foreground sm:text-xl">
           What happens to workflows after they&rsquo;re built?
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/85">
+        <p className="text-sm leading-relaxed text-muted-foreground">
           On a monthly plan, we monitor and maintain every workflow
           we&rsquo;ve built for you — bug fixes, model updates,
           integration tweaks. If you cancel, the workflows stay live on
@@ -295,17 +327,20 @@ function SlotClassesExplainer() {
 
 function HowItWorksExplainer() {
   return (
-    <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-8">
-      <h3 className="font-mono text-xs uppercase tracking-wider text-primary">
-        How it works
+    <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-3 rounded-2xl border border-border/60 bg-secondary/50 p-6 sm:p-8">
+      <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
+        The flow
+      </span>
+      <h3 className="text-lg font-semibold leading-tight tracking-tight text-foreground sm:text-xl">
+        How it works.
       </h3>
-      <p className="mt-3 text-base leading-relaxed text-foreground/85">
+      <p className="text-base leading-relaxed text-muted-foreground">
         Subscribe to the plan that fits your pace. Each month we build new
-        automations for you — one, two, or three depending on your tier. Once
+        workflows for you — one on Starter, up to two on Growth. Once
         they&rsquo;re live, we monitor and maintain them for as long as
-        you&rsquo;re subscribed. Everything runs on your infrastructure with
-        your API keys, so you own what we build and you&rsquo;re never locked
-        in.
+        you&rsquo;re subscribed. Everything runs on your infrastructure
+        with your API keys, so you own what we build and you&rsquo;re never
+        locked in.
       </p>
     </div>
   );
