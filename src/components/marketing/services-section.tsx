@@ -7,6 +7,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { BOOKING_URL } from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 import { useFadeIn } from "./utils";
@@ -46,7 +47,7 @@ const TIERS: ReadonlyArray<Tier> = [
     tagline: "Lowest-friction way to start. See us ship before you go monthly.",
     price: "$1,500",
     priceSuffix: "one-time",
-    cta: "Start a pilot",
+    cta: "Discuss a pilot",
     includes: [
       {
         text: "1 automation built end-to-end",
@@ -66,7 +67,7 @@ const TIERS: ReadonlyArray<Tier> = [
     tagline: "Replaces a part-time hire. ($30K/year, fully managed.)",
     price: "$2,500",
     priceSuffix: "/month",
-    cta: "Subscribe",
+    cta: "Talk through Starter",
     highlight: true,
     includes: [
       {
@@ -87,7 +88,7 @@ const TIERS: ReadonlyArray<Tier> = [
     tagline: "Replaces a full-time ops hire. ($54K/year, no payroll, no churn.)",
     price: "$4,500",
     priceSuffix: "/month",
-    cta: "Subscribe",
+    cta: "Talk through Growth",
     includes: [
       {
         text: "2 automation slots per month",
@@ -148,45 +149,23 @@ export function ServicesSection() {
 }
 
 /**
- * Resolve where the per-tier Subscribe button sends the buyer.
- *
- * Once Stripe payment links exist, set per-tier `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_*`
- * env vars at build time and clicks open Stripe checkout in a new tab. Until
- * then, clicks open a pre-filled `mailto:` so the buyer lands on a real next
- * step instead of a dead anchor.
+ * Every tier CTA routes to the shared {@link BOOKING_URL} — at stage
+ * zero, every prospect should land on a workflow-audit conversation
+ * before any money changes hands. Stripe self-serve checkout is
+ * deliberately turned off until you've scoped enough engagements to
+ * trust the productized fit. When ready, swap the body of this
+ * function to read from `process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_*`
+ * — the call sites won't change.
  */
-function getSubscribeTarget(
-  tierId: Tier["id"],
-  tierName: string,
-): { href: string; isExternal: boolean } {
-  // Pilot is intentionally not self-serve — it routes to a sales
-  // conversation so we can scope the workflow on the kickoff call.
-  if (tierId === "pilot") {
-    const subject = encodeURIComponent("Pilot — start a workflow");
-    return {
-      href: `mailto:hello@buildroom.ai?subject=${subject}`,
-      isExternal: false,
-    };
-  }
-
-  const stripeLink =
-    tierId === "starter"
-      ? process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_STARTER
-      : process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_GROWTH;
-
-  if (stripeLink) {
-    return { href: stripeLink, isExternal: true };
-  }
-
-  const subject = encodeURIComponent(`Subscribe — ${tierName}`);
+function getSubscribeTarget(): { href: string; isExternal: boolean } {
   return {
-    href: `mailto:hello@buildroom.ai?subject=${subject}`,
-    isExternal: false,
+    href: BOOKING_URL,
+    isExternal: BOOKING_URL.startsWith("http"),
   };
 }
 
 function TierCard({ tier }: { tier: Tier }) {
-  const target = getSubscribeTarget(tier.id, tier.name);
+  const target = getSubscribeTarget();
 
   return (
     <div

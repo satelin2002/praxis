@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CreditCard, MessageSquare, Rocket, Wrench } from "lucide-react";
+import { CalendarCheck, ClipboardList, Rocket, Wrench } from "lucide-react";
 
 import { SectionHeading } from "@/components/shared/section-heading";
 import { cn } from "@/lib/utils";
@@ -15,29 +15,33 @@ interface Step {
   icon: React.ComponentType<{ className?: string }>;
 }
 
+/* Call-first process. No Stripe step in here — at stage zero every
+   prospect should land on a workflow-audit conversation, get scoped,
+   and only then receive a payment link. Self-serve subscribe is a
+   later-stage feature when the productized fit is proven. */
 const STEPS: ReadonlyArray<Step> = [
   {
-    weeks: "Day 1",
-    title: "Subscribe.",
-    body: "Pick a plan. Pay with Stripe. You're in.",
-    icon: CreditCard,
+    weeks: "30 min",
+    title: "Book a workflow audit.",
+    body: "We look at your current workflow and identify 3–5 places where automation could save time, reduce manual work, or recover revenue. Free, no commitment.",
+    icon: CalendarCheck,
   },
   {
     weeks: "Day 1",
-    title: "Kickoff call.",
-    body: "Short call to map your current workflow, agree on what we're building first, and align on what success looks like. Async from there — your private board, no weekly status meetings. We'll also help you set up the accounts and API keys we'll need (typically $50–$300/mo in vendor costs, paid directly).",
-    icon: MessageSquare,
+    title: "Scope the first automation.",
+    body: "Short kickoff call to agree on what we're building first, what systems it touches, and what success looks like. We'll also help you set up the accounts and API keys we'll need (typically $50–$300/mo in vendor costs, paid directly).",
+    icon: ClipboardList,
   },
   {
     weeks: "1–2 weeks",
     title: "We build it.",
-    body: "Most automations ship in 1–2 weeks. You get progress updates async. We test against your real data before going live.",
+    body: "Most automations ship in 1–2 weeks. You get progress updates async. We test against your real workflow before going live.",
     icon: Wrench,
   },
   {
     weeks: "Ongoing",
     title: "We run it for you.",
-    body: "Once it's live, we keep it running. Bug fixes, updates, improvements — all included while you're subscribed.",
+    body: "Once it's live, we monitor, fix, improve, and document the automation while you stay focused on the business.",
     icon: Rocket,
   },
 ];

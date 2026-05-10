@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
+import { BOOKING_URL } from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -81,7 +82,7 @@ export function MarketingHeader() {
               size="sm"
               className="hidden shadow-sm sm:inline-flex"
             >
-              <Link href="/#pricing">See pricing</Link>
+              <Link href={BOOKING_URL}>Book free audit</Link>
             </Button>
 
             <button
@@ -167,8 +168,8 @@ function MobileMenu({
 
       <div className="border-t border-border/40 px-4 py-5 sm:px-6">
         <Button asChild size="xl" className="group w-full shadow-sm">
-          <Link href="/#pricing" onClick={onClose}>
-            See pricing
+          <Link href={BOOKING_URL} onClick={onClose}>
+            Book free audit
           </Link>
         </Button>
         <p className="mt-3 text-center text-xs text-muted-foreground">

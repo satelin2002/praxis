@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BackgroundOrbs } from "@/components/shared/background-orbs";
 import { CanvasDotGrid } from "@/components/shared/canvas-dot-grid";
+import { BOOKING_URL } from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 import { LiveWorkflowCard } from "./live-workflow-card";
@@ -90,11 +91,11 @@ export function HeroSection() {
                   : "translate-y-4 opacity-0",
               )}
             >
-              Buildroom recovers the revenue small businesses lose to missed
-              leads, slow follow-up, and forgotten review requests. We build
-              and run the AI workflows that reply to every lead, book more
-              jobs, and keep the inbox under control. One flat monthly fee.
-              Cancel anytime.
+              Buildroom builds and runs AI automations for small businesses
+              — lead follow-up, customer support, booking, review requests,
+              inbox triage, and other repeatable work. Save time, reduce
+              manual work, recover revenue. One flat monthly fee. Cancel
+              anytime.
             </p>
 
             <div
@@ -111,8 +112,8 @@ export function HeroSection() {
                 size="xl"
                 className="group shadow-lg shadow-primary/20"
               >
-                <Link href="#pricing">
-                  See pricing
+                <Link href={BOOKING_URL}>
+                  Book a free workflow audit
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </Button>
@@ -122,7 +123,7 @@ export function HeroSection() {
                 size="xl"
                 className="text-muted-foreground hover:text-foreground"
               >
-                <Link href="#process">How it works →</Link>
+                <Link href="#recently-shipped">See example workflows →</Link>
               </Button>
             </div>
 

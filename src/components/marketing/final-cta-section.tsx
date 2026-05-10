@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { BOOKING_URL, EMAIL_DISPLAY, EMAIL_URL } from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 import { useFadeIn } from "./utils";
@@ -37,11 +38,12 @@ export function FinalCtaSection() {
           Ready when you are
         </span>
         <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-          Stop paying for work that should be automated.
+          Ready to find your first automation?
         </h2>
         <p className="max-w-xl text-balance text-base text-muted-foreground sm:text-lg">
-          Subscribe today. Drop your first request tonight. Have it live next
-          week — for less than the cost of a part-time hire.
+          Book a free workflow audit. We&rsquo;ll look at your current workflow
+          and show 3–5 places AI could save time, reduce manual work, or
+          recover revenue. No commitment, no slides, no pitch deck.
         </p>
 
         <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
@@ -50,8 +52,8 @@ export function FinalCtaSection() {
             size="xl"
             className="group shadow-lg shadow-primary/20"
           >
-            <Link href="#pricing">
-              Subscribe — from $2,500/mo
+            <Link href={BOOKING_URL}>
+              Book a free workflow audit
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </Button>
@@ -61,12 +63,18 @@ export function FinalCtaSection() {
             size="xl"
             className="text-muted-foreground hover:text-foreground"
           >
-            <Link href="#pricing">Compare all plans →</Link>
+            <Link href="#pricing">See pricing →</Link>
           </Button>
         </div>
 
         <p className="mt-2 text-sm text-muted-foreground">
-          Pause or cancel anytime · 7-day money-back guarantee · No setup fees
+          Prefer email?{" "}
+          <a
+            href={EMAIL_URL}
+            className="text-info underline-offset-4 hover:underline"
+          >
+            {EMAIL_DISPLAY}
+          </a>
         </p>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/shared/logo";
+import { BOOKING_URL } from "@/lib/cta-targets";
 import { NewsletterForm } from "./newsletter-form";
 
 const COLUMNS: ReadonlyArray<{
@@ -22,7 +23,7 @@ const COLUMNS: ReadonlyArray<{
     heading: "Company",
     links: [
       { label: "FAQ", href: "/#faq" },
-      { label: "Subscribe", href: "/#subscribe" },
+      { label: "Book free audit", href: BOOKING_URL },
       { label: "hello@buildroom.ai", href: "mailto:hello@buildroom.ai" },
     ],
   },

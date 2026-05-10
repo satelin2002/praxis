@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { BOOKING_URL } from "@/lib/cta-targets";
 import { cn } from "@/lib/utils";
 
 /**
@@ -73,7 +74,7 @@ export function StickyMobileCta() {
       )}
     >
       <Link
-        href="#pricing"
+        href={BOOKING_URL}
         tabIndex={visible ? 0 : -1}
         className={cn(
           "group pointer-events-auto flex items-center justify-between gap-3 rounded-full bg-primary px-5 py-3.5 text-primary-foreground shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90",
@@ -81,10 +82,10 @@ export function StickyMobileCta() {
       >
         <span className="flex flex-col text-left leading-tight">
           <span className="font-mono text-[11px] uppercase tracking-wider opacity-80">
-            From $2,500/mo
+            Free 15-min call
           </span>
           <span className="text-sm font-semibold">
-            Subscribe — cancel anytime
+            Book a free workflow audit
           </span>
         </span>
         <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
