@@ -22,6 +22,7 @@ const COLUMNS: ReadonlyArray<{
   {
     heading: "Company",
     links: [
+      { label: "Insights", href: "/insights" },
       { label: "FAQ", href: "/#faq" },
       { label: "Book free audit", href: BOOKING_URL },
       { label: "hello@tryworkflowcrew.com", href: "mailto:hello@tryworkflowcrew.com" },
