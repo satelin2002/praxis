@@ -57,6 +57,26 @@ const POSTS = [
     prompt:
       "Editorial photograph, top-down close-up of a contractor's smartphone resting on a worn workbench, screen showing a long list of missed calls and unread text-message notifications. Tools (a wrench, a meter, a clipboard) visible at the edges of the frame. Warm warehouse-style overhead lighting. Photorealistic, shallow focus on the phone, 16:9 aspect ratio.",
   },
+  {
+    slug: "real-estate-response-time-window",
+    prompt:
+      "Editorial photograph: an open laptop on a real estate agent's desk showing a property listing form submission with a fresh timestamp, a smartphone next to it with a missed-call notification, a small house keychain and a coffee cup. Morning natural light from a window with blurred residential street outside. Warm professional feeling, photorealistic, no faces, 16:9 aspect ratio.",
+  },
+  {
+    slug: "dental-practice-no-show-cadence",
+    prompt:
+      "Editorial photograph of an empty dental operatory chair under soft morning light, clean professional environment, dental instrument tray visible to one side, large window in the background with daylight. Conveys quiet, unused capacity. Photorealistic, no people, no glowing screens, clean clinical aesthetic but warm not sterile, 16:9 aspect ratio.",
+  },
+  {
+    slug: "law-firm-intake-automation",
+    prompt:
+      "Editorial photograph, slight overhead angle: an attorney's wooden desk with a yellow legal pad and pen, a single closed manila folder labeled INTAKE, a desk phone with the handset just placed down, and a reading lamp casting warm light across the scene. Soft afternoon light from a window on the left. Conveys quiet focus and order. Photorealistic, no faces, no monitors, 16:9 aspect ratio.",
+  },
+  {
+    slug: "auto-repair-review-compounding",
+    prompt:
+      "Editorial photograph inside a clean independent auto repair shop: a customer's car keys resting on the service counter next to a printed invoice and a smartphone showing a text-message conversation. A repair bay with a vehicle on a lift visible softly in the blurred background. Natural workshop light, warm and earned. Photorealistic, no faces, no glowing screens, 16:9 aspect ratio.",
+  },
 ];
 
 // ── env loading ────────────────────────────────────────────────────
