@@ -19,8 +19,8 @@ export async function InsightsPreviewSection() {
       <div className="mx-auto w-full max-w-300">
         <SectionHeading
           eyebrow="Insights"
-          title="Writing on what we ship."
-          description="Field notes from real engagements — what worked, what didn't, what we learned. The kind of post we'd send a prospect to settle whether we're for real."
+          title="Patterns from the field."
+          description="Specific, useful posts written for owners and operators — not other AI engineers. New ones ship as we have something concrete worth saying."
         />
 
         <div className="mt-16 grid gap-5 md:grid-cols-3">
@@ -30,15 +30,17 @@ export async function InsightsPreviewSection() {
               href={`/insights/${p.slug}`}
               className="group flex flex-col gap-4 rounded-xl border border-border/60 bg-background/40 p-6 transition-colors hover:border-primary/40 hover:bg-background/70"
             >
-              <div className="relative -mx-1 aspect-[4/3] overflow-hidden rounded-lg border border-border/50 bg-secondary">
-                <Image
-                  src={p.image ?? "/images/praxis-og.png"}
-                  alt=""
-                  fill
-                  sizes="(min-width: 768px) 30vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
+              {p.image ? (
+                <div className="relative -mx-1 aspect-4/3 overflow-hidden rounded-lg border border-border/50 bg-secondary">
+                  <Image
+                    src={p.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 30vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+              ) : null}
               <div className="flex items-center gap-3">
                 <span
                   className={cn(

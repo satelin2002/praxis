@@ -1,17 +1,14 @@
 import type { MetadataRoute } from "next";
 
+import { getPosts } from "@/lib/posts";
+
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://tryworkflowcrew.com";
 
-/*
- * Sitemap excludes /insights and /insights/[slug] while the blog is paused.
- * The /insights stub is also marked `noindex` in its metadata, so search
- * engines won't surface it. Restore the `getPosts()`-driven entries here
- * when real posts go live.
- */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const posts = await getPosts();
 
   return [
     {
@@ -20,6 +17,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 1,
     },
+    {
+      url: `${SITE_URL}/insights`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...posts.map((p) => ({
+      url: `${SITE_URL}/insights/${p.slug}`,
+      lastModified: new Date(p.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
     {
       url: `${SITE_URL}/privacy`,
       lastModified: now,

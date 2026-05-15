@@ -114,6 +114,12 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://api.fontshare.com/v2/css?f[]=excon@500,700,800&display=swap"
         />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Workflow Crew · Insights"
+          href="/insights/rss.xml"
+        />
       </head>
       <body className="min-h-svh overflow-x-clip bg-background font-sans text-foreground">
         <ThemeProvider>{children}</ThemeProvider>

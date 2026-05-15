@@ -1,17 +1,44 @@
+import { getPosts } from "@/lib/posts";
+
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://tryworkflowcrew.com";
 
 export const revalidate = 3600;
 
-/*
- * Insights is intentionally OFF until real engagement-driven posts exist.
- * The RSS feed renders as an empty channel so any subscriber that hit it
- * before sees zero items rather than fabricated content. When real posts
- * land, restore the `getPosts()`-driven implementation from git history.
- */
+function escape(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET() {
-  const lastBuildDate = new Date().toUTCString();
+  const posts = await getPosts();
+
+  const items = posts
+    .map((p) => {
+      const url = `${SITE_URL}/insights/${p.slug}`;
+      const pubDate = new Date(p.publishedAt).toUTCString();
+      return `    <item>
+      <title>${escape(p.title)}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <category>${escape(p.tag)}</category>
+      <description>${escape(p.excerpt)}</description>
+    </item>`;
+    })
+    .join("\n");
+
+  const lastBuildDate =
+    posts.length > 0
+      ? new Date(
+          Math.max(...posts.map((p) => new Date(p.publishedAt).getTime())),
+        ).toUTCString()
+      : new Date().toUTCString();
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -19,9 +46,10 @@ export async function GET() {
     <title>Workflow Crew · Insights</title>
     <link>${SITE_URL}/insights</link>
     <atom:link href="${SITE_URL}/insights/rss.xml" rel="self" type="application/rss+xml" />
-    <description>Long-form posts from real engagements — publishing soon.</description>
+    <description>Patterns and playbooks for small businesses automating the work that's eating their team's time.</description>
     <language>en</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
+${items}
   </channel>
 </rss>
 `;

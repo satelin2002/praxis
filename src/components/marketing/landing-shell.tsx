@@ -3,6 +3,7 @@ import { ComparisonSection } from "./comparison-section";
 import { FaqSection } from "./faq-section";
 import { FinalCtaSection } from "./final-cta-section";
 import { HeroSection } from "./hero-section";
+import { InsightsPreviewSection } from "./insights-preview-section";
 import { MarketingFooter } from "./marketing-footer";
 import { MarketingHeader } from "./marketing-header";
 import { ProblemSection } from "./problem-section";
@@ -14,11 +15,10 @@ import { WhatWeBuildSection } from "./what-we-build-section";
 import { WhoWeWorkWithSection } from "./who-we-work-with-section";
 
 /*
- * `WorkSection`, `InsightsPreviewSection`, `WhoItsForSection`, `AboutSection`,
- * and `ContactSection` are intentionally NOT mounted here. Their component
- * files remain in the codebase so they can be reattached without
- * re-implementation when the productized SMB subscription model gives way to
- * a different surface (e.g., bringing back a contact form or about page).
+ * `WorkSection`, `WhoItsForSection`, `AboutSection`, and `ContactSection`
+ * are intentionally NOT mounted here. Their component files remain in
+ * the codebase so they can be reattached without re-implementation when
+ * we have a reason to bring them back.
  */
 export function LandingShell() {
   return (
@@ -34,6 +34,7 @@ export function LandingShell() {
         <ComparisonSection />
         <ServicesSection />
         <RecentlyShippedSection />
+        <InsightsPreviewSection />
         <FaqSection />
         <FinalCtaSection />
       </main>
