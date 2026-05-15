@@ -157,7 +157,7 @@ async function main() {
     process.exit(1);
   }
 
-  const model = process.env.XAI_IMAGE_MODEL || "grok-2-image-1212";
+  const model = process.env.XAI_IMAGE_MODEL || "grok-imagine-image";
 
   // Parse --only filter
   const onlyIdx = process.argv.indexOf("--only");
